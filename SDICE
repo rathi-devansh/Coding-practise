@@ -1,0 +1,70 @@
+//CODECHEF CHEF AND DICE
+#include <iostream>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        long long N,sum,stack,a,s;
+        cin>>N;
+        if(N>4)
+        {
+            a=N/4;
+             if(a>=2)
+            {
+            s=(N-4)/4;
+             }
+            else{
+            s=0;
+             }
+            stack=44*s;
+            if(N%4==1)
+            {
+                sum=(76+stack);
+                cout<<sum<<endl;
+            }
+            else if(N%4==2)
+            {
+                sum=(88+stack);
+                cout<<sum<<endl;
+            }
+            else if((N%4)==3)
+            {
+                sum=(99+stack);
+                cout<<sum<<endl;
+            }
+            else if((N%4)==0)
+            {
+                sum=(60+stack);
+                cout<<sum<<endl;
+            }
+            else 
+            {
+              continue;  
+            }
+        } 
+        else
+        {
+            if(N==1)
+            {
+                cout<<20<<endl;
+            }
+            else if(N==2)
+            {
+                cout<<36<<endl;
+            }
+            else if(N==3)
+            {
+                cout<<51<<endl;
+            }
+            else
+            {
+                cout<<60<<endl;
+            }
+        
+        }
+    }
+	return 0;
+}
