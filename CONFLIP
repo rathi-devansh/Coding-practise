@@ -1,0 +1,34 @@
+//CODECHEF COIN FLIP
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int g;
+	    cin>>g;
+	    while(g--)
+	    {
+	        int l,n,q,p;
+	        cin>>l>>n>>q;
+	        if(n%2==1)
+	        {
+	            if(l==q)
+	            {
+	                cout<<n/2<<endl;
+	            }
+	            else
+	            {
+	                cout<<(n/2)+1<<endl;
+	            }
+	        }
+	        else
+	        {
+	            cout<<n/2<<endl;
+	        }
+	    }
+	}
+	return 0;
+}
