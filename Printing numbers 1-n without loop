@@ -1,0 +1,40 @@
+//PRINTING NUMBERS FROM 1 TO N WITHOUT USING A LOOP
+//APPROACH 1
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n,i=0;
+    cout<<"EntEr the value of n "<<endl;
+    cin>>n;
+    begin:
+    i=i+1;
+    cout<<i<<" ";
+    if(i<n)
+    {
+        goto begin;
+    }
+}
+
+
+
+
+//APPROACH 2
+// WHEN THE VALUE IS PRE-DECIDED
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int number(int value)
+{
+    if(value<=10)
+    {
+        cout<<value<<" ";
+        number(value+1);
+    }
+}int main()
+{
+    int value=1;
+    number(value);
+}
