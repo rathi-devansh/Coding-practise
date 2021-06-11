@@ -1,0 +1,45 @@
+//A string is said to be using strong language if it contains at least K
+// consecutive characters '*'.
+
+//You are given a string S
+// with length N
+//. Determine whether it uses strong language or not.
+#include <iostream>
+#include<string.h>
+#include<bits/stdc++.h>
+using namespace std;    
+main()
+{
+int t;
+cin>>t;
+while(t--)
+{ 
+    int n,k;
+    cin>>n;
+    cin>>k;
+    char s[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>s[i];
+    }
+    int a=0,l=0;
+    for(int i=0;i<n;i++)
+    {
+        if(s[i]== '*')
+        {
+            a++;
+            if(a==k)
+            {
+                cout<<"YES"<<endl;
+                l++;
+                break;
+            }
+        }
+        else
+        a=0;
+    }
+    if(l==0)
+    cout<<"NO"<<endl;
+}  
+return 0;
+}
