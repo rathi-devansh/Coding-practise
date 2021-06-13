@@ -1,0 +1,44 @@
+//Maximum Weight Difference
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    long long n,k;
+	    cin>>n>>k;
+	    long long a[n];
+	    int sum=0;
+	    for(int i=0;i<n;i++)
+	    { 
+	        cin>>a[i];
+	        sum+=a[i];
+	    }
+	    sort(a,a+n);
+	    
+	    int r=n-k;
+	    if(r<k)
+	    {
+	        int tot=0;
+	        for(int i=0;i<r;i++)
+	        tot+=a[i];
+	        
+	        cout<<(sum-tot)-tot<<endl;
+	    }
+	    else
+	    {
+	        int tot=0;
+	        for(int i=0;i<k;i++)
+	        tot+=a[i];
+	        
+	        cout<<(sum-tot)-tot<<endl;
+	    }
+	    
+	    
+	}
+	return 0;
+}
+
