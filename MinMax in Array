@@ -1,0 +1,22 @@
+//finding Maximum and minimum Elements in an array
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cout<<"Enetr the size of array ";
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    for(int  i=0;i<n;i++)
+    {
+        cout<<a[i];
+    }
+    cout<<endl;
+    sort(a,a+n);
+    cout<<"minimum Element in array is "<<a[0]<<endl;
+    cout<<"maximum Element in array is "<<a[n-1]<<endl;
+}
