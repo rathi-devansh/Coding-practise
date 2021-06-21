@@ -1,0 +1,38 @@
+//Intersection of two array 
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n,m,count=0;
+    cout<<"Enter the length of arrays  ";
+    cin>>n>>m;
+    int a[n],b[m],c[n+m];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    for(int i=0;i<m;i++)
+    {
+        cin>>b[i];
+    }
+    int l=0;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            if(a[i]==b[j])
+            {
+                c[l]=a[i];
+                count =count+1;
+                l++;
+            }
+        }
+    }
+    cout<<endl<<"The instersection of two array is ";
+    sort(c,c+count);
+    for(int i=0;i<count;i++)
+    {
+        cout<<c[i]<<" ";
+    }
+}
