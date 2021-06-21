@@ -1,0 +1,49 @@
+//Smallest Numbers of Notes
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int k,notes=0;
+	    cin>>k;
+	    while(k!=0)
+	    {
+	        if(k>100)
+	    {
+	        notes=notes+k/100;
+	        k=k%100;
+	    }
+	    else if(k>=50&&k<100)
+	    {
+	       notes=notes+k/50;
+	       k=k%50;
+	    }
+	    else if(k>=10&&k<50)
+	    {
+	        notes=notes+k/10;
+	        k=k%10;
+	    }
+	    else if(k>=5&&k<10)
+	    {
+	        notes=notes+k/5;
+	        k=k%5;
+	    }
+	    else if(k>=2&&k<5)
+	    {
+	        notes=notes+k/2;
+	        k=k%2;
+	    }
+	    else if(k>=1&&k<2)
+	    {
+	        notes=notes+k/1;
+	        k=k%1;
+	    }
+	    }
+	    
+	    cout<<notes<<endl;
+	}
+	return 0;
+}
