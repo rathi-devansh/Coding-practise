@@ -1,0 +1,42 @@
+//Searching in a sorted array 
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    int a[n][m];
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            cin>>a[i][j];
+        }
+    }
+    int element,p=0;
+    cout<<"Enter the element to  be searched "<<endl;
+    cin>>element;
+    int i=0,j=m-1;
+    while(i<n &&j>=0)
+    {
+        if(a[i][j]==element)
+        {
+            cout<<i<<","<<j;
+            p=1;
+            break;
+        }
+        else if(element>a[i][j])
+        {
+            i++;
+        }
+        else
+        {
+            j--;
+        }
+    }
+    if(p==0)
+    {
+        cout<<"element not found ";
+    }
+}
