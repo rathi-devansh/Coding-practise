@@ -14,13 +14,18 @@ int main()
             cin>>a[i][j];
         }
     }
-    int s=0;
+    int s=0,p=2;
     for(int j=0;j<m;j++)         //for 1st row
     {
         if(a[0][j]==1)
         {
             s=j;
+            p=0;
             break;
+        }
+        else 
+        {
+            s=m;
         }
     }
     int row=0;
@@ -35,10 +40,17 @@ int main()
                     s=j;
                     row=i;
                 }
+                p=0;
                 break;
             }
         }
     }
-    cout<<"the Row is "<<row;
-    
+    if(p!=0)
+    {
+        cout<<"-1";
+    }
+    else
+    {
+        cout<<row;
+    }   
 }
