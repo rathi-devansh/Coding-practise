@@ -1,0 +1,31 @@
+//Minimum number of jumps to reach the end of the array 
+#include<bits/stdc++.h>
+using namespace std;
+
+int minjump(int a[],int n)
+{
+    int halt=0,jumps=0,maxx=0;
+    if(a[0]==0)
+    {
+        return -1;
+    }
+   for(int i=0;i<n-1;i++)
+    {
+        maxx=max(maxx,i+a[i]);
+        if(maxx>=n-1)
+        {
+            jumps++;
+            return jumps;
+        }
+        else if(i==halt)
+        {
+            halt=maxx;
+            jumps++;
+        }
+    }
+    if(halt>=n-1)
+    {
+        return jumps;
+    }
+    return -1;
+}
