@@ -32,3 +32,31 @@ int main()
     }
     cout<<"The maximum sum is "<<max_sum;
 }
+// another solution 
+int count=0,maxx=0;
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]<0)
+                count+=1;
+        }
+        if(count==n)
+        {
+            sort(a,a+n);
+            return a[n-1];
+        }
+        else
+        {
+            int sum=0;
+            for(int i=0;i<n;i++)
+            {
+                sum=sum+a[i];
+                maxx=max(sum,maxx);
+                if(sum<0)
+                {
+                    sum=0;
+                }
+            }
+        }
+        return maxx;
+        
+    }
