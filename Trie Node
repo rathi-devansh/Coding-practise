@@ -1,0 +1,132 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class TrieNode
+{
+    public:
+    char data;
+    TrieNode * children[26];
+    bool isTerminal;
+    
+    TrieNode(char ch)
+    {
+        data=ch;
+        isTerminal=false;
+        for(int i=0;i<26;i++)
+        {
+            children[i]=NULL;
+            
+        }
+    }
+};
+
+class Trie
+{
+    public:
+    TrieNode * root;
+    Trie(char ch)
+    {
+        root= new TrieNode(ch);
+    }
+};
+void InsertUtil(TrieNode* root,string word)
+{
+    //base case
+    if(word.length()==0)
+    {
+        root->isTerminal=true;
+        return;
+    }
+    int index=word[0]-'a';//when the letter are small
+    TrieNode * child;
+    if(root->children[index]!=NULL)
+    {
+        child=root->children[index];
+        
+    }
+    else
+    {
+        child= new TrieNode(word[0]);
+        root->children[index]=child;
+        
+    }
+    
+    InsertUtil(child,word.substr[]);
+    
+    void printSuggestions(TrieNode* curr,vector<string> &temp, string prefix)
+    {
+        if(curr->isTerminal)
+        {
+            temp.push_back(prefix);
+
+        }
+        
+        for(char ch='a';ch<='z';ch++)
+        {
+            TrieNode* next=curr->children[ch-'a'];
+            
+            if(next!=NULL)
+            {
+                prefix.push_back(ch);
+                printSuggestions(next,temp,prefix);
+                prefix.pop_back();
+            }
+        }
+        
+        
+    }
+    
+    
+    
+    
+    vector<vector<string> >getsuggestion(string word)
+    {
+        TrieNode* previous=root;
+        vector<vector<string>> output;
+        string prefix="";
+        for(int i=0;i<word.length;i++)
+        {
+            char last= word[i];
+             
+            prefix.push_back(last);
+            
+            
+            TrieNode* curr=previous->children[last-'a'];
+            
+            //if not found
+            if(curr==NULL)
+            {
+                break;
+            }
+            vector<string> temp;
+            
+            printSuggestions(curr,temp,prefix);
+            
+            output.push_back(temp);
+            temp.clear();
+            
+        }
+        return output;
+    }
+    
+}
+void Insert(string word)
+{
+    InsertUtil(root,word);
+}
+int main()
+{
+    Trie *t=new Trie();
+    
+    // inserting all contacts in Trie
+    
+    for(int i=0;i<contactlist.size();i++)
+    {
+        string str=contactlist[i];
+        t->Insert(str);
+    }
+    return t->getsuggestion(querystr);
+    
+    
+    
+}
