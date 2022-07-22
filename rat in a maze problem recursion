@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve(vector<vector<int> > &a,int n,vector<string> &ans,int x, int y ,
+vector<vector<int> > &v,string path )
+{
+    
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<vector<int> > a;
+    for(int i=0;i<n;i++)
+    {
+        vector<int> k;
+        for(int  j=0;j<n;j++)
+        {
+            int s=0;
+            cin>>s;
+            k.push_back(s);
+        }
+        a.push_back(k);
+    }
+    int srcx=0,srcy=0;
+    vector<string>ans;
+    string path="";
+    
+    
+    
+    if(a[i][j]==0)
+    {
+        return ans;
+    }
+    
+    
+    vector<vector<int> > v=a;
+    for(int  i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            v[i][j]=0;
+        }
+    }
+   
+    solve(a,n,ans,srcx,srcy,v,path);
+    sort(ans.begin(),ans.end());
+    
+}
