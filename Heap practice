@@ -1,0 +1,110 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// int swap(int a,int b)
+// {
+//     int temp=0;
+//     temp=a;
+//     a=b;
+//     b=temp;
+//     return;
+// }
+class Heap
+{
+    public:
+    
+    int a[100];
+    int size;
+    Heap()
+    {
+        a[0]=-1;
+        size=0;
+        
+    }
+    
+    void insert(int val)
+    {
+        size=size+1;
+        int i=size;
+        a[i]=val;
+        while(i>1)
+        {
+            int parent=i/2;
+            if(a[parent]<a[i])
+            {
+                swap(a[parent],a[i]);
+                i=parent;
+            }
+            else
+            {
+                return;
+            }
+            
+        }
+        
+    }
+    
+    void print()
+    {
+        for(int i=1;i<=size;i++)
+        {
+            cout<<a[i]<<" ";
+        }
+        cout<<endl;
+    }
+    
+    
+    void DeleteFromHeap()
+    {
+        if(size==0)
+        {
+            cout<<"Nothing to delete "<<endl;
+            
+        }
+        
+        a[1]=a[size];
+        size--;
+        
+        
+        int i=1;
+        while(i<size)
+        {
+            int leftIndex=2*i;
+            int rightIndex=2*i+1;
+            if(leftIndex< size && a[i]<a[leftIndex])
+            {
+                swap(a[i],a[leftIndex]);
+                i=leftIndex;
+            }
+            else if(rightIndex<size && a[i]<a[rightIndex])
+            {
+                swap(a[i],a[rightIndex]);
+                i=rightIndex;
+            }
+            else
+                return;
+            
+        }
+    }
+    
+    
+};
+
+
+
+int main()
+{
+    Heap h;
+    int n,b;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        int b=0;
+        cin>>b;
+        h.insert(b);
+    }
+    h.print();
+    h.DeleteFromHeap();
+    h.print();
+    
+}
