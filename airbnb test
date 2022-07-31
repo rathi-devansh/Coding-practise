@@ -1,0 +1,81 @@
+int start = 0, end = n;
+ 
+
+    // Selecting each element as the start index for
+
+    // subarray
+
+    for (int i = 0; i < n; i++) {
+
+        // Initialize a set to store all distinct elements
+
+        unordered_set<int> set;
+ 
+
+        // Selecting the end index for subarray
+
+        int j;
+
+        for (j = i; j < n; j++) {
+
+            set.insert(arr[j]);
+ 
+
+            /*
+
+            If set contains exactly k elements,
+
+            then check subarray[i, j] is smaller in size
+
+            than the current resultant subarray
+
+            */
+
+            if (set.size() == k) {
+
+                if (j - i < end - start) {
+
+                    start = i;
+
+                    end = j;
+
+                }
+ 
+
+                // There are already k distinct elements
+
+                // now, no need to consider further elements
+
+                break;
+
+            }
+
+        }
+ 
+
+        // If there are no k distinct elements
+
+        // left in the array starting from index i we will
+
+        // break
+
+        if (j == n) {
+
+            break;
+
+        }
+
+    }
+ 
+
+    // If no window found then print -1
+
+    if (start == 0 && end == n)
+
+        cout << "Invalid k";
+ 
+
+    else
+
+        cout << start << " " << end;
+}
